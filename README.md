@@ -63,13 +63,6 @@ POST /users
 409 → Duplicate email
 500 → Internal server error
 
-🧪 Run Locally
-Clone the repository
-git clone https://github.com/YOUR_USERNAME/user-management-api.git
-Navigate to project folder
-cd user-management-api
-Run the application
-mvn spring-boot:run
 
 🌐 Base URL
 http://localhost:8081
