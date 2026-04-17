@@ -57,6 +57,7 @@ POST /users
   "name": "Somya",
   "email": "somya123@gmail.com"
 }
+```
 ⚠️ Error Handling
 400 → Validation errors
 409 → Duplicate email
