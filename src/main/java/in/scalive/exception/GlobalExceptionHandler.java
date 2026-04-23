@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    // ✅ 1. Validation Errors (400)
+    //  1. Validation Errors (400)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleValidationErrors(
             MethodArgumentNotValidException ex,
@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
 
-    // ✅ 2. Duplicate Email (409)
+    //  2. Duplicate Email (409)
     @ExceptionHandler(DuplicateEmailException.class)
     public ResponseEntity<ErrorResponse> handleDuplicateEmail(
             DuplicateEmailException ex,
@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(errorResponse);
     }
 
-    // ✅ 3. Generic Exception (500) — ONLY ONE
+    //  3. Generic Exception (500) — ONLY ONE
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGenericError(
             Exception ex,
@@ -64,7 +64,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Internal Server Error",
-                List.of(ex.getMessage()), // 🔥 actual error dikhega
+                List.of(ex.getMessage()), 
                 request.getRequestURI(),
                 LocalDateTime.now()
         );
